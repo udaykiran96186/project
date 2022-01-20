@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- {% load static %} -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'home.css' %}"> -->
+    <title>HomePage</title>
+</head>
+<body >
+    <h1>Welcome to Digital Bank</h1>
+    <nav>
+        <a href="createAccount/">Create Account</a>
+
+    {% if user.is_authenticated and user.is_superuser %}
+      <a href="">Logout</a>
+    {% else %}
+    <a href="login/">Login</a>
+    <a href="">Check status</a>
+    {% endif %}
+</nav>
+    {% for i in messages %}
+        <h3>{{i}}</h3>
+    {% endfor %}
+</body>
+</html>
